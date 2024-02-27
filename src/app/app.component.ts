@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'form-register';
+  isSubmitted = false
+  @ViewChild("registerForm")
+  registerForm: NgForm;
+
+  onSubmit() {
+    this.isSubmitted = true
+    this.registerForm.reset()
+  }
 }
